@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consulta de Cese por DNI</title>
+  <!-- Fuente Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Carrusel de fondo -->
+  <div class="bg-carousel">
+    <div class="slide" style="background-image: url('slide1.jpg')"></div>
+    <div class="slide" style="background-image: url('slide2.jpg')"></div>
+    <div class="slide" style="background-image: url('slide3.jpg')"></div>
+  </div>
+
+  <!-- Overlay de carga -->
+  <div id="overlay" class="overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="container">
+    <!-- Tarjeta de búsqueda con tilt 3D -->
+    <div class="card form-card tilt-card" data-tilt>
+      <header class="header">
+        <img src="logo.png" alt="Liderman" class="logo" />
+        <h1 class="site-title">📑 Consulta de Cese</h1>
+      </header>
+
+      <form id="searchForm" class="search-form" novalidate>
+        <label for="dniInput" class="sr-only">DNI (8 dígitos)</label>
+        <input
+          id="dniInput"
+          type="text"
+          inputmode="numeric"
+          pattern="\d{8}"
+          maxlength="8"
+          placeholder="DNI (8 dígitos)"
+          required
+          aria-describedby="message"
+        />
+        <button type="submit" class="btn-search">Buscar</button>
+      </form>
+
+      <p id="message" class="message" aria-live="polite" role="status"></p>
+    </div>
+
+    <!-- Tarjeta de resultado con tilt 3D -->
+    <div id="result" class="card result-card tilt-card" data-tilt style="display: none;">
+      <h2>Resultado</h2>
+      <div class="table-wrapper"></div>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar resultado dinámicamente al encontrar datos
+    function showResultCard() {
+      document.getElementById('result').style.display = 'block';
+    }
+    window.showResultCard = showResultCard;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
